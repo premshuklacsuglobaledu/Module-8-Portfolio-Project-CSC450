@@ -1,0 +1,72 @@
+public class Main {
+
+
+    // First thread counts up
+    static class CountUp extends Thread {
+
+
+        public void run() {
+
+
+            for (int i = 0; i <= 20; i++) {
+
+
+                System.out.println("Up: " + i);
+
+
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    System.out.println("Error");
+                }
+            }
+        }
+    }
+
+
+    // Second thread counts down
+    static class CountDown extends Thread {
+
+
+        public void run() {
+
+
+            for (int i = 20; i >= 0; i--) {
+
+
+                System.out.println("Down: " + i);
+
+
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    System.out.println("Error");
+                }
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+
+        CountUp upThread = new CountUp();
+        CountDown downThread = new CountDown();
+
+
+        // Start first thread
+        upThread.start();
+
+
+        try {
+            // Wait for first thread to finish
+            upThread.join();
+        } catch (InterruptedException e) {
+            System.out.println("Error");
+        }
+
+
+        // Start second thread
+        downThread.start();
+    }
+}
