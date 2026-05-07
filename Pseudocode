@@ -1,0 +1,31 @@
+START
+
+
+Create CountUp thread
+Create CountDown thread
+
+
+Start CountUp thread
+
+
+CountUp thread:
+    Repeat from 0 to 20
+        Display number
+        Pause briefly
+    End Repeat
+
+
+Wait until CountUp thread finishes
+
+
+Start CountDown thread
+
+
+CountDown thread:
+    Repeat from 20 down to 0
+        Display number
+        Pause briefly
+    End Repeat
+
+
+END
